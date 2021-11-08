@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var ammoDani = 140;
+        var grDani = 4;
+        var daniIsAlive = true;
+        var gameFlow = ['dragons','dragons','carriage','dragons','carriage','carriage'];
+        
+
+        function dragon(draco) {
+            if (ammoDani >= (4 * draco)) {
+                ammoDani = ammoDani - (4 * draco);
+            } else grDani = grDani - (1 * draco);
+            if (ammoDani >= 0 || grDani >= 0) {
+                return console.log(daniIsAlive = true + ' после встречи с драконом');
+            } else console.log(daniIsAlive = false + ' после встречи с драконом');
+        }
+        function hostileCarriage() { 
+            if (grDani >= 2) {
+                grDani = grDani - 2;
+                if (Math.random >= 0.5) {
+                    return console.log(daniIsAlive = true + ' после встречи с каретой');
+                }
+            } else return console.log(daniIsAlive = false + ' после встречи с каретой');
+        }
+        function gameScenario(enemy, number) {
+            if (daniIsAlive) {
+                if (enemy === 'dragons') {
+                    return dragon(number);
+                } else return hostileCarriage();
+            } else {
+                return console.log('Game Over...');
+            }
+        }
+
+        for(var i = 0; i <= gameFlow.length; i++) {
+            if (gameFlow[i] === 'dragons') {
+                gameScenario(gameFlow[i], Math.random());
+            } else gameScenario(gameFlow[i], null);
+        }
+    </script>
+</body>
+</html>
